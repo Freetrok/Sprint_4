@@ -24,6 +24,16 @@ class YaScooterHomePageLocator:
     QUESTION_5 = [By.ID, "accordion__heading-5"]
     QUESTION_6 = [By.ID, "accordion__heading-6"]
     QUESTION_7 = [By.ID, "accordion__heading-7"]
+    answer_0 = [By.ID, "accordion__panel-0"]
+    answer_1 = [By.ID, "accordion__panel-1"]
+    answer_2 = [By.ID, "accordion__panel-2"]
+    answer_3 = [By.ID, "accordion__panel-3"]
+    answer_4 = [By.ID, "accordion__panel-4"]
+    answer_5 = [By.ID, "accordion__panel-5"]
+    answer_6 = [By.ID, "accordion__panel-6"]
+    answer_7 = [By.ID, "accordion__panel-7"]
+    change_questions = By.XPATH, '//*[@id="accordion__heading-{}" and @class="accordion__button"]'
+    change_answers = By.XPATH, '//*[@id="accordion__panel-{}"]'
 
     @staticmethod
     def faq_question_button(question_number):
@@ -36,20 +46,20 @@ class YaScooterHomePageLocator:
 
 class YaScooterOrderPageLocator:
     FIRST_NAME_INPUT = [By.XPATH, ".//input[contains(@placeholder,'Имя')]"]
-    INCORRECT_FIRST_NAME_MESSAGE = [By.XPATH, ".//input[contains(@placeholder,'Имя')]/parent::div/div"]
+    INCORRECT_FIRST_NAME_MESSAGE = [By.XPATH, ".//div[text()='Введите корректное имя']"]
     LAST_NAME_INPUT = [By.XPATH, ".//input[contains(@placeholder,'Фамилия')]"]
-    INCORRECT_LAST_NAME_MESSAGE = [By.XPATH, ".//input[contains(@placeholder,'Фамилия')]/parent::div/div"]
+    INCORRECT_LAST_NAME_MESSAGE = [By.XPATH, ".//div[text()='Введите корректную фамилию']"]
     ADDRESS_INPUT = [By.XPATH, ".//input[contains(@placeholder,'Адрес')]"]
-    INCORRECT_ADDRESS_MESSAGE = [By.XPATH, ".//input[contains(@placeholder,'Адрес')]/parent::div/div"]
+    INCORRECT_ADDRESS_MESSAGE = [By.XPATH, ".//div[text()='Введите корректный адрес']"]
     SUBWAY_FIELD = [By.XPATH, ".//input[contains(@placeholder,'метро')]"]
-    INCORRECT_SUBWAY_MESSAGE = [By.XPATH, ".//input[contains(@placeholder,'метро')]/parent::div/parent::div/parent::div/div[@class!='select-search']"]
+    INCORRECT_SUBWAY_MESSAGE = [By.XPATH, ".//div[text()='Выберите станцию']"]
 
     @staticmethod
     def subway_hint_button(subway_name: str):
         return [By.XPATH, f".//div[text()='{subway_name}']/parent::button"]
 
     TELEPHONE_NUMBER_FIELD = [By.XPATH, ".//input[contains(@placeholder,'Телефон')]"]
-    INCORRECT_TELEPHONE_NUMBER_MESSAGE = [By.XPATH, ".//input[contains(@placeholder,'Телефон')]/parent::div/div"]
+    INCORRECT_TELEPHONE_NUMBER_MESSAGE = [By.XPATH, ".//div[text()='Введите корректный номер']"]
 
     NEXT_BUTTON = [By.XPATH, ".//button[text()='Далее']"]
     BACK_BUTTON = [By.XPATH, ".//button[text()='Назад']"]
