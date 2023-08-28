@@ -23,6 +23,11 @@ class BasePage:
             url = self.base_url
         return self.driver.get(url)
 
+    def scroll_to_element(self, locator):
+        return self.driver.execute_script("arguments[0].scrollIntoView();", locator)
+
+    def wait_for_locator(self, locator, time=10):
+        return WebDriverWait(self.driver, time).until(EC.visibility_of_element_located(locator))
 
     @allure.step('Получить текущий URL')
     def current_url(self):
